@@ -16,4 +16,5 @@
     <mappers>
         <mapper resource="mybatis/StudentMapper.xml"/>
     </mappers>
+    
 </configuration>

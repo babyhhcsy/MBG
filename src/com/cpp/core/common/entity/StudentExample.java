@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentExample {
-    protected String orderByClause;
+    public String orderByClause;
 
-    protected boolean distinct;
+    public boolean distinct;
 
-    protected List<Criteria> oredCriteria;
+    public List<Criteria> oredCriteria;
 
     public StudentExample() {
         oredCriteria = new ArrayList<Criteria>();
@@ -52,7 +52,7 @@ public class StudentExample {
         return criteria;
     }
 
-    protected Criteria createCriteriaInternal() {
+    public Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria();
         return criteria;
     }
@@ -63,10 +63,10 @@ public class StudentExample {
         distinct = false;
     }
 
-    protected abstract static class GeneratedCriteria {
-        protected List<Criterion> criteria;
+    public abstract static class GeneratedCriteria {
+        public List<Criterion> criteria;
 
-        protected GeneratedCriteria() {
+        public GeneratedCriteria() {
             super();
             criteria = new ArrayList<Criterion>();
         }
@@ -83,21 +83,21 @@ public class StudentExample {
             return criteria;
         }
 
-        protected void addCriterion(String condition) {
+        public void addCriterion(String condition) {
             if (condition == null) {
                 throw new RuntimeException("Value for condition cannot be null");
             }
             criteria.add(new Criterion(condition));
         }
 
-        protected void addCriterion(String condition, Object value, String property) {
+        public void addCriterion(String condition, Object value, String property) {
             if (value == null) {
                 throw new RuntimeException("Value for " + property + " cannot be null");
             }
             criteria.add(new Criterion(condition, value));
         }
 
-        protected void addCriterion(String condition, Object value1, Object value2, String property) {
+        public void addCriterion(String condition, Object value1, Object value2, String property) {
             if (value1 == null || value2 == null) {
                 throw new RuntimeException("Between values for " + property + " cannot be null");
             }
@@ -507,7 +507,7 @@ public class StudentExample {
 
     public static class Criteria extends GeneratedCriteria {
 
-        protected Criteria() {
+        public Criteria() {
             super();
         }
     }
@@ -561,14 +561,14 @@ public class StudentExample {
             return typeHandler;
         }
 
-        protected Criterion(String condition) {
+        public Criterion(String condition) {
             super();
             this.condition = condition;
             this.typeHandler = null;
             this.noValue = true;
         }
 
-        protected Criterion(String condition, Object value, String typeHandler) {
+        public Criterion(String condition, Object value, String typeHandler) {
             super();
             this.condition = condition;
             this.value = value;
@@ -580,11 +580,11 @@ public class StudentExample {
             }
         }
 
-        protected Criterion(String condition, Object value) {
+        public Criterion(String condition, Object value) {
             this(condition, value, null);
         }
 
-        protected Criterion(String condition, Object value, Object secondValue, String typeHandler) {
+        public Criterion(String condition, Object value, Object secondValue, String typeHandler) {
             super();
             this.condition = condition;
             this.value = value;
@@ -593,7 +593,7 @@ public class StudentExample {
             this.betweenValue = true;
         }
 
-        protected Criterion(String condition, Object value, Object secondValue) {
+        public Criterion(String condition, Object value, Object secondValue) {
             this(condition, value, secondValue, null);
         }
     }
