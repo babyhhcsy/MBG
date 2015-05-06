@@ -1,4 +1,4 @@
-package com.thero.mapper.common;
+package com.thero.mapper.common.test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,8 +47,8 @@ public class GeneratedCriteria {
          criteria.add(new Criterion(condition, value1, value2));
      }
      /**
-      * ÅĞ¶Ï¸Ã×Ö¶ÎÎª¿Õ
-     * @param column ×Ö¶ÎÃû³Æ
+      * ï¿½Ğ¶Ï¸ï¿½ï¿½Ö¶ï¿½Îªï¿½ï¿½
+     * @param column ï¿½Ö¶ï¿½ï¿½ï¿½ï¿?
      * @author thero
      * @return
      */
@@ -57,8 +57,8 @@ public class GeneratedCriteria {
     	 return (Criteria) this;
      }
      /**
-      * ÅĞ¶Ï×Ö¶Î²»Îª¿Õ
-     * @param column ×Ö¶ÎÃû³Æ
+      * ï¿½Ğ¶ï¿½ï¿½Ö¶Î²ï¿½Îªï¿½ï¿½
+     * @param column ï¿½Ö¶ï¿½ï¿½ï¿½ï¿?
      * @return
      */
     public Criteria andIsNotNull(String column){
@@ -67,10 +67,10 @@ public class GeneratedCriteria {
      }
    
      /**
-      * ÅĞ¶Ï×Ö¶ÎµÈÓÚ
-     * @param column ×Ö¶ÎÃû³Æ
-     * @param value  ÊıÖµ
-     * @param property ÀàÊôĞÔÃû³Æ
+      * ï¿½Ğ¶ï¿½ï¿½Ö¶Îµï¿½ï¿½ï¿½
+     * @param column ï¿½Ö¶ï¿½ï¿½ï¿½ï¿?
+     * @param value  ï¿½ï¿½Öµ
+     * @param property ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?
      * @return
      */
     public Criteria andEqualTo(String column,Object value,String property){
@@ -78,10 +78,10 @@ public class GeneratedCriteria {
     	 return (Criteria) this;
      }
     /**
-     * ÅĞ¶Ï×Ö¶Î²»µÈÓÚ
-     * @param column  ×Ö¶ÎÃû³Æ
-     * @param value   ÊıÖµ
-     * @param property ÀàÊôĞÔÃû³Æ
+     * ï¿½Ğ¶ï¿½ï¿½Ö¶Î²ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @param column  ï¿½Ö¶ï¿½ï¿½ï¿½ï¿?
+     * @param value   ï¿½ï¿½Öµ
+     * @param property ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?
      * @return
      */
     public Criteria andNotEqualTo(String column,Object value,String property){
@@ -89,10 +89,10 @@ public class GeneratedCriteria {
     	 return (Criteria) this;
     }
     /**
-     * ÅĞ¶Ï×Ö¶Î´óÓÚ
-     * @param column ×Ö¶ÎÃû³Æ
-     * @param value ÊıÖµ
-     * @param property ÀàÊôĞÔÃû³Æ
+     * ï¿½Ğ¶ï¿½ï¿½Ö¶Î´ï¿½ï¿½ï¿½
+     * @param column ï¿½Ö¶ï¿½ï¿½ï¿½ï¿?
+     * @param value ï¿½ï¿½Öµ
+     * @param property ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?
      * @return
      */
     public Criteria andGreaterThan(String column,Object value,String property) {
@@ -100,10 +100,10 @@ public class GeneratedCriteria {
     	 return (Criteria) this;
     }
     /**
-     * ÅĞ¶Ï×Ö¶Î´óÓÚµÈÓÚ
-     * @param column ×Ö¶ÎÃû³Æ
-     * @param value  ÊıÖµ
-     * @param property ÀàÊôĞÔÃû³Æ
+     * ï¿½Ğ¶ï¿½ï¿½Ö¶Î´ï¿½ï¿½Úµï¿½ï¿½ï¿½
+     * @param column ï¿½Ö¶ï¿½ï¿½ï¿½ï¿?
+     * @param value  ï¿½ï¿½Öµ
+     * @param property ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?
      * @return
      */
     public Criteria andGreaterThanOrEqualTo(String column,Object value,String property) {
@@ -111,10 +111,10 @@ public class GeneratedCriteria {
    	 	return (Criteria) this;
     }
     /**
-     * ÅĞ¶Ï×Ö¶ÎĞ¡ÓÚ
-     * @param column ×Ö¶ÎÃû³Æ
-     * @param value  ÊıÖµ
-     * @param property ÀàÊôĞÔÃû³Æ
+     * ï¿½Ğ¶ï¿½ï¿½Ö¶ï¿½Ğ¡ï¿½ï¿½
+     * @param column ï¿½Ö¶ï¿½ï¿½ï¿½ï¿?
+     * @param value  ï¿½ï¿½Öµ
+     * @param property ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?
      * @return
      */
     public Criteria andLessThan(String column,Object value,String property) {
@@ -122,10 +122,10 @@ public class GeneratedCriteria {
    	 	return (Criteria) this;
     }
     /**
-     * ÅĞ¶Ï×Ö¶ÎĞ¡ÓÚµÈÓÚ
-     * @param column ×Ö¶ÎÃû³Æ
-     * @param value  ÊıÖµ
-     * @param property ÀàÊôĞÔÃû³Æ
+     * ï¿½Ğ¶ï¿½ï¿½Ö¶ï¿½Ğ¡ï¿½Úµï¿½ï¿½ï¿½
+     * @param column ï¿½Ö¶ï¿½ï¿½ï¿½ï¿?
+     * @param value  ï¿½ï¿½Öµ
+     * @param property ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?
      * @return
      */
     public Criteria andLessThanOrEqualTo(String column,Object value,String property) {
@@ -133,10 +133,10 @@ public class GeneratedCriteria {
    	 	return (Criteria) this;
     }
     /**
-     * ÅĞ¶Ï×Ö¶ÎÔÚÄ³¸ö·¶Î§in
-     * @param column ×Ö¶ÎÃû³Æ
-     * @param value  ÊıÖµ
-     * @param property ÀàÊôĞÔÃû³Æ
+     * ï¿½Ğ¶ï¿½ï¿½Ö¶ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½ï¿½Î§in
+     * @param column ï¿½Ö¶ï¿½ï¿½ï¿½ï¿?
+     * @param value  ï¿½ï¿½Öµ
+     * @param property ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?
      * @return
      */
     public Criteria andIn(String column,List<Object> values,String property){
@@ -144,10 +144,10 @@ public class GeneratedCriteria {
           return (Criteria) this;
     }
     /**
-     * ÅĞ¶Ï×Ö¶Î²»ÔÚÄ³¸ö·¶Î§in
-     * @param column ×Ö¶ÎÃû³Æ
-     * @param value  ÊıÖµ
-     * @param property ÀàÊôĞÔÃû³Æ
+     * ï¿½Ğ¶ï¿½ï¿½Ö¶Î²ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½ï¿½Î§in
+     * @param column ï¿½Ö¶ï¿½ï¿½ï¿½ï¿?
+     * @param value  ï¿½ï¿½Öµ
+     * @param property ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?
      * @return
      */
     public Criteria andNotIn(String column,List<Object> values,String property){
@@ -155,10 +155,10 @@ public class GeneratedCriteria {
           return (Criteria) this;
     }
     /**
-     * ÅĞ¶Ï×Ö¶ÎÔÚÊ²Ã´Ö®¼ä
-     * @param column ×Ö¶ÎÃû³Æ
-     * @param value  ÊıÖµ
-     * @param property ÀàÊôĞÔÃû³Æ
+     * ï¿½Ğ¶ï¿½ï¿½Ö¶ï¿½ï¿½ï¿½Ê²Ã´Ö®ï¿½ï¿½
+     * @param column ï¿½Ö¶ï¿½ï¿½ï¿½ï¿?
+     * @param value  ï¿½ï¿½Öµ
+     * @param property ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?
      * @return
      */
     public Criteria andBetween(String column,Object value1,Object value2,String property){
@@ -166,10 +166,10 @@ public class GeneratedCriteria {
           return (Criteria) this;
     }
     /**
-     * ÅĞ¶Ï×Ö¶Î²»ÔÚÊ²Ã´Ö®¼ä
-     * @param column ×Ö¶ÎÃû³Æ
-     * @param value  ÊıÖµ
-     * @param property ÀàÊôĞÔÃû³Æ
+     * ï¿½Ğ¶ï¿½ï¿½Ö¶Î²ï¿½ï¿½ï¿½Ê²Ã´Ö®ï¿½ï¿½
+     * @param column ï¿½Ö¶ï¿½ï¿½ï¿½ï¿?
+     * @param value  ï¿½ï¿½Öµ
+     * @param property ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?
      * @return
      */
     public Criteria andNotBetween(String column,Object value1,Object value2,String property){
@@ -177,10 +177,10 @@ public class GeneratedCriteria {
           return (Criteria) this;
     }
     /**
-     * ÀàËÆÓÚ
-     * @param column ×Ö¶ÎÃû³Æ
-     * @param value  ÊıÖµ
-     * @param property ÀàÊôĞÔÃû³Æ
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @param column ï¿½Ö¶ï¿½ï¿½ï¿½ï¿?
+     * @param value  ï¿½ï¿½Öµ
+     * @param property ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?
      * @return
      */
     public Criteria andLike(String column,Object value,String property){
@@ -188,10 +188,10 @@ public class GeneratedCriteria {
     	return (Criteria) this;
     }
     /**
-     * ²»ÀàËÆÓÚ
-     * @param column ×Ö¶ÎÃû³Æ
-     * @param value  ÊıÖµ
-     * @param property ÀàÊôĞÔÃû³Æ
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @param column ï¿½Ö¶ï¿½ï¿½ï¿½ï¿?
+     * @param value  ï¿½ï¿½Öµ
+     * @param property ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?
      * @return
      */
     public Criteria andNotLike(String column,Object value,String property){
