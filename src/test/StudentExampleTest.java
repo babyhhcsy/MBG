@@ -71,8 +71,17 @@ public class StudentExampleTest {
 			session = sqlSessionFactory.openSession();
 			StudentMapper studentMapper = (StudentMapper) session.getMapper(StudentMapper.class);
 			StudentExample studentExample = new StudentExample();
-			GeneratedCriteria generatedCriteria = studentExample.createCriteria();
-			generatedCriteria.addCriterion("where 1=1");
+			Criteria criteria = studentExample.createCriteria();
+			//拼接name
+			criteria.andNameEqualTo("李林");
+			Criteria criteria2 = studentExample.createCriteria();
+			//拼接name
+			criteria2.andNameEqualTo("陈明");
+			//拼接or的查询
+			studentExample.or(criteria2);
+			//添加排序字段
+			studentExample.setOrderByClause("name,gender");
+			studentExample.setDistinct(true);
 			List<Student> student = studentMapper.selectByExample(studentExample);
 			for (Student student2 : student) {
 				System.out.println(student2.getName());
