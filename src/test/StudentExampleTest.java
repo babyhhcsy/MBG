@@ -13,7 +13,6 @@ import org.junit.Test;
 import com.cpp.core.common.entity.Student;
 import com.cpp.core.common.entity.StudentExample;
 import com.cpp.core.common.entity.StudentExample.Criteria;
-import com.cpp.core.common.entity.StudentExample.GeneratedCriteria;
 import com.cpp.core.scfRecharge.mybatis.dao.StudentMapper;
 
 public class StudentExampleTest {

@@ -1,5 +1,6 @@
 package com.thero.mapper.common.test;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,8 +48,8 @@ public class GeneratedCriteria {
          criteria.add(new Criterion(condition, value1, value2));
      }
      /**
-      * �жϸ��ֶ�Ϊ��
-     * @param column �ֶ����?
+      * 判断该字段为空
+     * @param column 字段名称
      * @author thero
      * @return
      */
@@ -57,8 +58,8 @@ public class GeneratedCriteria {
     	 return (Criteria) this;
      }
      /**
-      * �ж��ֶβ�Ϊ��
-     * @param column �ֶ����?
+      * 判断字段不为空
+     * @param column 字段名称
      * @return
      */
     public Criteria andIsNotNull(String column){
@@ -67,10 +68,10 @@ public class GeneratedCriteria {
      }
    
      /**
-      * �ж��ֶε���
-     * @param column �ֶ����?
-     * @param value  ��ֵ
-     * @param property ���������?
+      * 判断字段等于
+     * @param column 字段名称
+     * @param value  数值
+     * @param property 类属性名称
      * @return
      */
     public Criteria andEqualTo(String column,Object value,String property){
@@ -78,10 +79,10 @@ public class GeneratedCriteria {
     	 return (Criteria) this;
      }
     /**
-     * �ж��ֶβ�����
-     * @param column  �ֶ����?
-     * @param value   ��ֵ
-     * @param property ���������?
+     * 判断字段不等于
+     * @param column  字段名称
+     * @param value   数值
+     * @param property 类属性名称
      * @return
      */
     public Criteria andNotEqualTo(String column,Object value,String property){
@@ -89,10 +90,10 @@ public class GeneratedCriteria {
     	 return (Criteria) this;
     }
     /**
-     * �ж��ֶδ���
-     * @param column �ֶ����?
-     * @param value ��ֵ
-     * @param property ���������?
+     * 判断字段大于
+     * @param column 字段名称
+     * @param value 数值
+     * @param property 类属性名称
      * @return
      */
     public Criteria andGreaterThan(String column,Object value,String property) {
@@ -100,10 +101,10 @@ public class GeneratedCriteria {
     	 return (Criteria) this;
     }
     /**
-     * �ж��ֶδ��ڵ���
-     * @param column �ֶ����?
-     * @param value  ��ֵ
-     * @param property ���������?
+     * 判断字段大于等于
+     * @param column 字段名称
+     * @param value  数值
+     * @param property 类属性名称
      * @return
      */
     public Criteria andGreaterThanOrEqualTo(String column,Object value,String property) {
@@ -111,10 +112,10 @@ public class GeneratedCriteria {
    	 	return (Criteria) this;
     }
     /**
-     * �ж��ֶ�С��
-     * @param column �ֶ����?
-     * @param value  ��ֵ
-     * @param property ���������?
+     * 判断字段小于
+     * @param column 字段名称
+     * @param value  数值
+     * @param property 类属性名称
      * @return
      */
     public Criteria andLessThan(String column,Object value,String property) {
@@ -122,10 +123,10 @@ public class GeneratedCriteria {
    	 	return (Criteria) this;
     }
     /**
-     * �ж��ֶ�С�ڵ���
-     * @param column �ֶ����?
-     * @param value  ��ֵ
-     * @param property ���������?
+     * 判断字段小于等于
+     * @param column 字段名称
+     * @param value  数值
+     * @param property 类属性名称
      * @return
      */
     public Criteria andLessThanOrEqualTo(String column,Object value,String property) {
@@ -133,10 +134,10 @@ public class GeneratedCriteria {
    	 	return (Criteria) this;
     }
     /**
-     * �ж��ֶ���ĳ����Χin
-     * @param column �ֶ����?
-     * @param value  ��ֵ
-     * @param property ���������?
+     * 判断字段在某个范围in
+     * @param column 字段名称
+     * @param value  数值
+     * @param property 类属性名称
      * @return
      */
     public Criteria andIn(String column,List<Object> values,String property){
@@ -144,10 +145,10 @@ public class GeneratedCriteria {
           return (Criteria) this;
     }
     /**
-     * �ж��ֶβ���ĳ����Χin
-     * @param column �ֶ����?
-     * @param value  ��ֵ
-     * @param property ���������?
+     * 判断字段不在某个范围in
+     * @param column 字段名称
+     * @param value  数值
+     * @param property 类属性名称
      * @return
      */
     public Criteria andNotIn(String column,List<Object> values,String property){
@@ -155,10 +156,10 @@ public class GeneratedCriteria {
           return (Criteria) this;
     }
     /**
-     * �ж��ֶ���ʲô֮��
-     * @param column �ֶ����?
-     * @param value  ��ֵ
-     * @param property ���������?
+     * 判断字段在什么之间
+     * @param column 字段名称
+     * @param value  数值
+     * @param property 类属性名称
      * @return
      */
     public Criteria andBetween(String column,Object value1,Object value2,String property){
@@ -166,10 +167,10 @@ public class GeneratedCriteria {
           return (Criteria) this;
     }
     /**
-     * �ж��ֶβ���ʲô֮��
-     * @param column �ֶ����?
-     * @param value  ��ֵ
-     * @param property ���������?
+     * 判断字段不在什么之间
+     * @param column 字段名称
+     * @param value  数值
+     * @param property 类属性名称
      * @return
      */
     public Criteria andNotBetween(String column,Object value1,Object value2,String property){
@@ -177,10 +178,10 @@ public class GeneratedCriteria {
           return (Criteria) this;
     }
     /**
-     * ������
-     * @param column �ֶ����?
-     * @param value  ��ֵ
-     * @param property ���������?
+     * 类似于
+     * @param column 字段名称
+     * @param value  数值
+     * @param property 类属性名称
      * @return
      */
     public Criteria andLike(String column,Object value,String property){
@@ -188,10 +189,10 @@ public class GeneratedCriteria {
     	return (Criteria) this;
     }
     /**
-     * ��������
-     * @param column �ֶ����?
-     * @param value  ��ֵ
-     * @param property ���������?
+     * 不类似于
+     * @param column 字段名称
+     * @param value  数值
+     * @param property 类属性名称
      * @return
      */
     public Criteria andNotLike(String column,Object value,String property){
