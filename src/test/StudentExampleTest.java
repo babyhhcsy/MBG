@@ -34,7 +34,7 @@ public class StudentExampleTest {
 	}
 	
 	/**
-	 * ²âÊÔStudentExampleÖĞCriteriaÓÃ·¨
+	 * æµ‹è¯•StudentExampleä¸­Criteriaç”¨æ³•
 	 */
 	@Test
 	public void TestExample(){
@@ -60,7 +60,7 @@ public class StudentExampleTest {
 	@Test
 	public void testCondition(){
 		try {
-			//Èç¹ûÏëÔÚ¿ØÖÆÌ¨ÖĞÊä³öÈÕÖ¾µÄÄÚÈİ£¬ÄÇÃ´±ØĞëÌí¼ÓÉÏÕâ¾ä»°
+			//å¦‚æœæƒ³åœ¨æ§åˆ¶å°ä¸­è¾“å‡ºæ—¥å¿—çš„å†…å®¹ï¼Œé‚£ä¹ˆå¿…é¡»æ·»åŠ ä¸Šè¿™å¥è¯
 			org.apache.ibatis.logging.LogFactory.useStdOutLogging();
 			Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
 			SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder()
@@ -71,14 +71,14 @@ public class StudentExampleTest {
 			StudentMapper studentMapper = (StudentMapper) session.getMapper(StudentMapper.class);
 			StudentExample studentExample = new StudentExample();
 			Criteria criteria = studentExample.createCriteria();
-			//Æ´½Óname
-			criteria.andNameEqualTo("ÀîÁÖ");
+			//æ‹¼æ¥name
+			criteria.andNameEqualTo("ææ—");
 			Criteria criteria2 = studentExample.createCriteria();
-			//Æ´½Óname
-			criteria2.andNameEqualTo("³ÂÃ÷");
-			//Æ´½ÓorµÄ²éÑ¯
+			//æ‹¼æ¥name
+			criteria2.andNameEqualTo("é™ˆæ˜");
+			//æ‹¼æ¥orçš„æŸ¥è¯¢
 			studentExample.or(criteria2);
-			//Ìí¼ÓÅÅĞò×Ö¶Î
+			//æ·»åŠ æ’åºå­—æ®µ
 			studentExample.setOrderByClause("name,gender");
 			studentExample.setDistinct(true);
 			List<Student> student = studentMapper.selectByExample(studentExample);

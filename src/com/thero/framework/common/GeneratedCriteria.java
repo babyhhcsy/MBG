@@ -1,4 +1,4 @@
-package com.thero.mapper.common.test;
+package com.thero.framework.common;
 
 import java.util.ArrayList;
 import java.util.List;
