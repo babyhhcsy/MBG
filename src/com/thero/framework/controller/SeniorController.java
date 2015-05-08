@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.thero.framework.common.Pager;
 import com.thero.framework.exception.CharIsNullException;
 import com.thero.framework.service.BaseService;
+import com.thero.framework.service.SeniorService;
 import com.thero.framework.util.JsonMap;
 import com.thero.framework.util.PageParamsUtil;
 import com.thero.framework.util.StringUtil;
@@ -121,8 +122,16 @@ public abstract class SeniorController<T,PK extends Serializable> extends BaseCo
 	 * AFTER_UPDATE_URL在更新实力类之前，调转要修改的url地址路径
 	 */
 	public final String  AFTER_UPDATE_URL = "afterUpdateUrl";
+	protected  SeniorService<T, PK> getService(){
+		return (SeniorService<T, PK>) getEntityService();
+	};
+	/**
+	 * 重写该方法的时候，需要返回的是继承SeniorService，这样在使用getService的时候
+	 * 不会报错
+	 * @return
+	 */
+	protected  abstract BaseService<T, PK> getEntityService();
 	
-	protected abstract BaseService<T, PK> getEntityService();
 	
 	/**
 	 * 获得bean的modelAttribute

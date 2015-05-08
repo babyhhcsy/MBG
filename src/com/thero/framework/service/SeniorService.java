@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import com.thero.framework.common.CommonExample;
 
 
-public interface SeniorService<T,PK extends Serializable> {
+public interface SeniorService<T,PK extends Serializable> extends BaseService<T, PK>{
 	int countByExample(CommonExample example);
 
     int deleteByExample(CommonExample example);

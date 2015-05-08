@@ -14,7 +14,7 @@ import org.apache.ibatis.session.RowBounds;
  * @CreationTime: 13-2-20 上午10:01
  * @Description:
  */
-public interface BaseDao<T, PK extends Serializable> extends Serializable {
+public interface BaseDao<T, PK extends Serializable>  {
 
     /**
      * 保存对象

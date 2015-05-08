@@ -7,15 +7,22 @@ import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 
 import com.thero.framework.common.CommonExample;
+import com.thero.framework.dao.BaseDao;
 import com.thero.framework.dao.SeniorDao;
 
-public abstract class SeniorServiceImpl<T, PK extends Serializable> implements
+public abstract class SeniorServiceImpl<T, PK extends Serializable> extends BaseServiceImpl<T, PK> implements
 		SeniorService<T, PK> {
 	private static Logger logger = LoggerFactory.getLogger(SeniorServiceImpl.class);
 
-	protected abstract SeniorDao<T, PK> getDao();
-
-	
+	protected  SeniorDao<T, PK> getEntityDao(){
+		return (SeniorDao<T, PK>) getDao();
+	};
+	/**
+	 * 重写该方法的时候，需要返回的是继承SeniorDao，这样在使用getEntityDao的时候
+	 * 不会报错
+	 * @return
+	 */
+	protected abstract BaseDao<T, PK> getDao() ;
 	/**
 	 * example 根据example统计条数
 	 * @param CommonExample 根据example来查询个数
@@ -24,7 +31,7 @@ public abstract class SeniorServiceImpl<T, PK extends Serializable> implements
 	 */
 	@Override
 	public int countByExample(CommonExample example) {
-		return this.getDao().countByExample(example);
+		return this.getEntityDao().countByExample(example);
 	}
 
 	/**
@@ -35,7 +42,7 @@ public abstract class SeniorServiceImpl<T, PK extends Serializable> implements
 	 */
 	@Override
 	public int deleteByExample(CommonExample example) {
-		return this.getDao().deleteByExample(example);
+		return this.getEntityDao().deleteByExample(example);
 	}
 
 	/**
@@ -46,7 +53,7 @@ public abstract class SeniorServiceImpl<T, PK extends Serializable> implements
 	 */
 	@Override
 	public int deleteByPrimaryKey(PK pk) {
-		return this.getDao().deleteByPrimaryKey(pk);
+		return this.getEntityDao().deleteByPrimaryKey(pk);
 	}
 
 	/**
@@ -57,7 +64,7 @@ public abstract class SeniorServiceImpl<T, PK extends Serializable> implements
 	 */
 	@Override
 	public int insert(T record) {
-		return this.getDao().insert(record);
+		return this.getEntityDao().insert(record);
 	}
 
 	/**
@@ -68,7 +75,7 @@ public abstract class SeniorServiceImpl<T, PK extends Serializable> implements
 	 */
 	@Override
 	public int insertSelective(T record) {
-		return this.getDao().insertSelective(record);
+		return this.getEntityDao().insertSelective(record);
 	}
 
 	/**
@@ -79,7 +86,7 @@ public abstract class SeniorServiceImpl<T, PK extends Serializable> implements
 	 */
 	@Override
 	public List<T> selectByExample(CommonExample example) {
-		return this.getDao().selectByExample(example);
+		return this.getEntityDao().selectByExample(example);
 	}
 
 	/**
@@ -90,7 +97,7 @@ public abstract class SeniorServiceImpl<T, PK extends Serializable> implements
 	 */
 	@Override
 	public T selectByPrimaryKey(PK pk) {
-		return this.getDao().selectByPrimaryKey(pk);
+		return this.getEntityDao().selectByPrimaryKey(pk);
 	}
 
 	/**
@@ -102,7 +109,7 @@ public abstract class SeniorServiceImpl<T, PK extends Serializable> implements
 	 */
 	@Override
 	public int updateByExampleSelective(T record, CommonExample example) {
-		return this.getDao().updateByExampleSelective(record, example);
+		return this.getEntityDao().updateByExampleSelective(record, example);
 	}
 
 	/**
@@ -114,7 +121,7 @@ public abstract class SeniorServiceImpl<T, PK extends Serializable> implements
 	 */
 	@Override
 	public int updateByExample(T record, CommonExample example) {
-		return this.getDao().updateByExample(record, example);
+		return this.getEntityDao().updateByExample(record, example);
 	}
 
 	/**
@@ -125,7 +132,7 @@ public abstract class SeniorServiceImpl<T, PK extends Serializable> implements
 	 */
 	@Override
 	public int updateByPrimaryKeySelective(T record) {
-		return this.getDao().updateByPrimaryKeySelective(record);
+		return this.getEntityDao().updateByPrimaryKeySelective(record);
 	}
 
 	/**
@@ -136,6 +143,6 @@ public abstract class SeniorServiceImpl<T, PK extends Serializable> implements
 	 */
 	@Override
 	public int updateByPrimaryKey(T record) {
-		return this.getDao().updateByPrimaryKey(record);
+		return this.getEntityDao().updateByPrimaryKey(record);
 	}
 }
