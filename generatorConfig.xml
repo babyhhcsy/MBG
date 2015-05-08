@@ -9,7 +9,10 @@
 	<classPathEntry
 		location="D:\workGC\myBatisGenerator\WebContent\WEB-INF\lib\mysql-connector-java-5.1.22-bin.jar" />
 	<context id="yihaomen_mysql_tables" targetRuntime="MyBatis3">
-
+		<!-- <plugin type="com.thero.mybatis.expand.exapndSQLXML">
+			<property name="targetProject" value="SeniorMybatis"/>
+			<property name="targetPackage" value="com.cpp.core.common.entity"/>
+		</plugin> -->
 		<!-- 为了防止生成的代码中有很多注释，比较难看，加入下面的配置控制 -->
 		<commentGenerator>
 			<property name="suppressAllComments" value="true" />
