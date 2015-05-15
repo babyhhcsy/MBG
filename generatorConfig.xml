@@ -49,8 +49,8 @@
 			 <property name="enableSubPackages" value="true" /> 
 		</javaClientGenerator> 
 		<!-- 要对那些数据表进行生成操作，必须要有一个. -->
-		<table schema="mybatis" tableName="student"
-			domainObjectName="Student" >
+		<table schema="mybatis" tableName="teacher"
+			domainObjectName="teacher" >
 		</table>
 		</context>
 </generatorConfiguration>

@@ -140,7 +140,7 @@ public abstract class SeniorController<T,PK extends Serializable> extends BaseCo
 	 * @param map
 	 * @return 
 	 */
-	public T getBean(@RequestParam(value="fid",required=false) PK id,Map<String,Object> map){
+	public  T getBean(@RequestParam(value="fid",required=false) PK id,Map<String,Object> map){
 		if(null!=id){
 			T t = this.getEntityService().getByID((PK) id);
 			map.put(this.getModelName(), t);

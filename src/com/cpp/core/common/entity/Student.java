@@ -13,7 +13,17 @@ public class Student {
 
     private Integer supervisorId;
 
-    public Integer getId() {
+    private Teacher teacher;
+
+	public Teacher getTeacher() {
+		return teacher;
+	}
+
+	public void setTeacher(Teacher teacher) {
+		this.teacher = teacher;
+	}
+
+	public Integer getId() {
         return id;
     }
 

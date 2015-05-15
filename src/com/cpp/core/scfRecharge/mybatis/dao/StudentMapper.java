@@ -2,7 +2,10 @@ package com.cpp.core.scfRecharge.mybatis.dao;
 
 import com.cpp.core.common.entity.Student;
 import com.cpp.core.common.entity.StudentExample;
+
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface StudentMapper {
@@ -27,4 +30,6 @@ public interface StudentMapper {
     int updateByPrimaryKeySelective(Student record);
 
     int updateByPrimaryKey(Student record);
+    
+    List<Student> queryStudentAndTeacher(Map<String,Object> params);
 }

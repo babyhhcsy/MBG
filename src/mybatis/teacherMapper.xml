@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.cpp.core.scfRecharge.mybatis.dao.StudentMapper" >
-  <resultMap id="BaseResultMap" type="com.cpp.core.common.entity.Student" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="gender" property="gender" jdbcType="VARCHAR" />
-    <result column="major" property="major" jdbcType="VARCHAR" />
-    <result column="grade" property="grade" jdbcType="VARCHAR" />
-    <result column="supervisor_id" property="supervisorId" jdbcType="INTEGER" />
-    <association property="teacher" column="supervisor_id" resultMap="com.cpp.core.scfRecharge.mybatis.dao.TeacherMapper.BaseResultMap" ></association>
+<mapper namespace="com.cpp.core.scfRecharge.mybatis.dao.TeacherMapper" >
+  <resultMap id="BaseResultMap" type="com.cpp.core.common.entity.Teacher" >
+    <id column="tea_id" property="id" jdbcType="INTEGER" />
+    <result column="tea_name" property="name" jdbcType="VARCHAR" />
+    <result column="tea_gender" property="gender" jdbcType="VARCHAR" />
+    <result column="tea_research_area" property="researchArea" jdbcType="VARCHAR" />
+    <result column="tea_title" property="title" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -69,15 +67,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, name, gender, major, grade, supervisor_id
+    id as tea_id, name as tea_name, gender as tea_gender, research_area as tea_research_area, title as tea_title
   </sql>
-  <select id="selectByExample" useCache="true" resultMap="BaseResultMap" parameterType="com.cpp.core.common.entity.StudentExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cpp.core.common.entity.TeacherExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from student
+    from teacher
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -88,29 +86,27 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from student
+    from teacher
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from student
+    delete from teacher
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.cpp.core.common.entity.StudentExample" >
-    delete from student
+  <delete id="deleteByExample" parameterType="com.cpp.core.common.entity.TeacherExample" >
+    delete from teacher
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.cpp.core.common.entity.Student" >
-    insert into student (id, name, gender, 
-      major, grade, supervisor_id
-      )
+  <insert id="insert" parameterType="com.cpp.core.common.entity.Teacher" >
+    insert into teacher (id, name, gender, 
+      research_area, title)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, 
-      #{major,jdbcType=VARCHAR}, #{grade,jdbcType=VARCHAR}, #{supervisorId,jdbcType=INTEGER}
-      )
+      #{researchArea,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.cpp.core.common.entity.Student" >
-    insert into student
+  <insert id="insertSelective" parameterType="com.cpp.core.common.entity.Teacher" >
+    insert into teacher
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -121,14 +117,11 @@
       <if test="gender != null" >
         gender,
       </if>
-      <if test="major != null" >
-        major,
+      <if test="researchArea != null" >
+        research_area,
       </if>
-      <if test="grade != null" >
-        grade,
-      </if>
-      <if test="supervisorId != null" >
-        supervisor_id,
+      <if test="title != null" >
+        title,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -141,25 +134,22 @@
       <if test="gender != null" >
         #{gender,jdbcType=VARCHAR},
       </if>
-      <if test="major != null" >
-        #{major,jdbcType=VARCHAR},
+      <if test="researchArea != null" >
+        #{researchArea,jdbcType=VARCHAR},
       </if>
-      <if test="grade != null" >
-        #{grade,jdbcType=VARCHAR},
-      </if>
-      <if test="supervisorId != null" >
-        #{supervisorId,jdbcType=INTEGER},
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.cpp.core.common.entity.StudentExample" resultType="java.lang.Integer" >
-    select count(*) from student
+  <select id="countByExample" parameterType="com.cpp.core.common.entity.TeacherExample" resultType="java.lang.Integer" >
+    select count(*) from teacher
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update student
+    update teacher
     <set >
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
@@ -170,14 +160,11 @@
       <if test="record.gender != null" >
         gender = #{record.gender,jdbcType=VARCHAR},
       </if>
-      <if test="record.major != null" >
-        major = #{record.major,jdbcType=VARCHAR},
+      <if test="record.researchArea != null" >
+        research_area = #{record.researchArea,jdbcType=VARCHAR},
       </if>
-      <if test="record.grade != null" >
-        grade = #{record.grade,jdbcType=VARCHAR},
-      </if>
-      <if test="record.supervisorId != null" >
-        supervisor_id = #{record.supervisorId,jdbcType=INTEGER},
+      <if test="record.title != null" >
+        title = #{record.title,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -185,19 +172,18 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update student
+    update teacher
     set id = #{record.id,jdbcType=INTEGER},
       name = #{record.name,jdbcType=VARCHAR},
       gender = #{record.gender,jdbcType=VARCHAR},
-      major = #{record.major,jdbcType=VARCHAR},
-      grade = #{record.grade,jdbcType=VARCHAR},
-      supervisor_id = #{record.supervisorId,jdbcType=INTEGER}
+      research_area = #{record.researchArea,jdbcType=VARCHAR},
+      title = #{record.title,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.cpp.core.common.entity.Student" >
-    update student
+  <update id="updateByPrimaryKeySelective" parameterType="com.cpp.core.common.entity.Teacher" >
+    update teacher
     <set >
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
@@ -205,43 +191,21 @@
       <if test="gender != null" >
         gender = #{gender,jdbcType=VARCHAR},
       </if>
-      <if test="major != null" >
-        major = #{major,jdbcType=VARCHAR},
+      <if test="researchArea != null" >
+        research_area = #{researchArea,jdbcType=VARCHAR},
       </if>
-      <if test="grade != null" >
-        grade = #{grade,jdbcType=VARCHAR},
-      </if>
-      <if test="supervisorId != null" >
-        supervisor_id = #{supervisorId,jdbcType=INTEGER},
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.cpp.core.common.entity.Student" >
-    update student
+  <update id="updateByPrimaryKey" parameterType="com.cpp.core.common.entity.Teacher" >
+    update teacher
     set name = #{name,jdbcType=VARCHAR},
       gender = #{gender,jdbcType=VARCHAR},
-      major = #{major,jdbcType=VARCHAR},
-      grade = #{grade,jdbcType=VARCHAR},
-      supervisor_id = #{supervisorId,jdbcType=INTEGER}
+      research_area = #{researchArea,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <select id="queryStudentAndTeacher" resultMap="BaseResultMap" useCache="true" >
-  	SELECT
-		s.id,
-		s.`name`,
-		s.gender,
-		s.major,
-		s.grade,
-		s.supervisor_id ,
-		t.id as tea_id,
-		t.`name` as tea_name,
-		t.gender as tea_gender,
-		t.research_area  as tea_research_area,
-		t.title  as tea_title
-	FROM
-		student s
-	LEFT JOIN teacher t ON s.supervisor_id = t.id
-  </select>
-  
 </mapper>
