@@ -22,8 +22,8 @@
 
 		<!-- 数据库连接 -->
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://127.0.0.1:3306/courseman?characterEncoding=utf8"
-			userId="root" password="root">
+			connectionURL="jdbc:mysql://192.168.0.223:3306/jingjiren?characterEncoding=utf8"
+			userId="root" password="cpp123456">
 		</jdbcConnection>
 
 		<javaTypeResolver>
@@ -49,8 +49,8 @@
 			 <property name="enableSubPackages" value="true" /> 
 		</javaClientGenerator> 
 		<!-- 要对那些数据表进行生成操作，必须要有一个. -->
-		<table schema="mybatis" tableName="teacher"
-			domainObjectName="teacher" >
+		<table schema="mybatis" tableName="tbl_loan_payment_type"
+			domainObjectName="LoanPaymentType" >
 		</table>
 		</context>
 </generatorConfiguration>

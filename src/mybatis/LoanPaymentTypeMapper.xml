@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cpp.core.scfRecharge.mybatis.dao.LoanPaymentTypeMapper" >
+  <resultMap id="BaseResultMap" type="com.cpp.core.common.entity.LoanPaymentType" >
+    <id column="FID" property="fid" jdbcType="INTEGER" />
+    <result column="CODE" property="code" jdbcType="VARCHAR" />
+    <result column="TYPE_NAME" property="typeName" jdbcType="VARCHAR" />
+    <result column="SEQ" property="seq" jdbcType="VARCHAR" />
+    <result column="IS_EXTERNAL" property="isExternal" jdbcType="VARCHAR" />
+    <result column="IS_ACTIVE" property="isActive" jdbcType="VARCHAR" />
+    <result column="INT_RATE" property="intRate" jdbcType="VARCHAR" />
+    <result column="RPMNT_MTHD" property="rpmntMthd" jdbcType="VARCHAR" />
+    <result column="REC_VER" property="recVer" jdbcType="VARCHAR" />
+    <result column="TAG_SEQ" property="tagSeq" jdbcType="VARCHAR" />
+    <result column="PENALTY_RATE" property="penaltyRate" jdbcType="VARCHAR" />
+    <result column="ADJUST_FEE" property="adjustFee" jdbcType="VARCHAR" />
+    <result column="is_Self" property="isSelf" jdbcType="VARCHAR" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="Updated_by" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="Update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="FRemark" property="fremark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    FID, CODE, TYPE_NAME, SEQ, IS_EXTERNAL, IS_ACTIVE, INT_RATE, RPMNT_MTHD, REC_VER, 
+    TAG_SEQ, PENALTY_RATE, ADJUST_FEE, is_Self, created_by, create_time, Updated_by, 
+    Update_time, FRemark
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cpp.core.common.entity.LoanPaymentTypeExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tbl_loan_payment_type
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_loan_payment_type
+    where FID = #{fid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tbl_loan_payment_type
+    where FID = #{fid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.cpp.core.common.entity.LoanPaymentTypeExample" >
+    delete from tbl_loan_payment_type
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.cpp.core.common.entity.LoanPaymentType" >
+    insert into tbl_loan_payment_type (FID, CODE, TYPE_NAME, 
+      SEQ, IS_EXTERNAL, IS_ACTIVE, 
+      INT_RATE, RPMNT_MTHD, REC_VER, 
+      TAG_SEQ, PENALTY_RATE, ADJUST_FEE, 
+      is_Self, created_by, create_time, 
+      Updated_by, Update_time, FRemark
+      )
+    values (#{fid,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, #{typeName,jdbcType=VARCHAR}, 
+      #{seq,jdbcType=VARCHAR}, #{isExternal,jdbcType=VARCHAR}, #{isActive,jdbcType=VARCHAR}, 
+      #{intRate,jdbcType=VARCHAR}, #{rpmntMthd,jdbcType=VARCHAR}, #{recVer,jdbcType=VARCHAR}, 
+      #{tagSeq,jdbcType=VARCHAR}, #{penaltyRate,jdbcType=VARCHAR}, #{adjustFee,jdbcType=VARCHAR}, 
+      #{isSelf,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{fremark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cpp.core.common.entity.LoanPaymentType" >
+    insert into tbl_loan_payment_type
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fid != null" >
+        FID,
+      </if>
+      <if test="code != null" >
+        CODE,
+      </if>
+      <if test="typeName != null" >
+        TYPE_NAME,
+      </if>
+      <if test="seq != null" >
+        SEQ,
+      </if>
+      <if test="isExternal != null" >
+        IS_EXTERNAL,
+      </if>
+      <if test="isActive != null" >
+        IS_ACTIVE,
+      </if>
+      <if test="intRate != null" >
+        INT_RATE,
+      </if>
+      <if test="rpmntMthd != null" >
+        RPMNT_MTHD,
+      </if>
+      <if test="recVer != null" >
+        REC_VER,
+      </if>
+      <if test="tagSeq != null" >
+        TAG_SEQ,
+      </if>
+      <if test="penaltyRate != null" >
+        PENALTY_RATE,
+      </if>
+      <if test="adjustFee != null" >
+        ADJUST_FEE,
+      </if>
+      <if test="isSelf != null" >
+        is_Self,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updatedBy != null" >
+        Updated_by,
+      </if>
+      <if test="updateTime != null" >
+        Update_time,
+      </if>
+      <if test="fremark != null" >
+        FRemark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fid != null" >
+        #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="typeName != null" >
+        #{typeName,jdbcType=VARCHAR},
+      </if>
+      <if test="seq != null" >
+        #{seq,jdbcType=VARCHAR},
+      </if>
+      <if test="isExternal != null" >
+        #{isExternal,jdbcType=VARCHAR},
+      </if>
+      <if test="isActive != null" >
+        #{isActive,jdbcType=VARCHAR},
+      </if>
+      <if test="intRate != null" >
+        #{intRate,jdbcType=VARCHAR},
+      </if>
+      <if test="rpmntMthd != null" >
+        #{rpmntMthd,jdbcType=VARCHAR},
+      </if>
+      <if test="recVer != null" >
+        #{recVer,jdbcType=VARCHAR},
+      </if>
+      <if test="tagSeq != null" >
+        #{tagSeq,jdbcType=VARCHAR},
+      </if>
+      <if test="penaltyRate != null" >
+        #{penaltyRate,jdbcType=VARCHAR},
+      </if>
+      <if test="adjustFee != null" >
+        #{adjustFee,jdbcType=VARCHAR},
+      </if>
+      <if test="isSelf != null" >
+        #{isSelf,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fremark != null" >
+        #{fremark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.cpp.core.common.entity.LoanPaymentTypeExample" resultType="java.lang.Integer" >
+    select count(*) from tbl_loan_payment_type
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tbl_loan_payment_type
+    <set >
+      <if test="record.fid != null" >
+        FID = #{record.fid,jdbcType=INTEGER},
+      </if>
+      <if test="record.code != null" >
+        CODE = #{record.code,jdbcType=VARCHAR},
+      </if>
+      <if test="record.typeName != null" >
+        TYPE_NAME = #{record.typeName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.seq != null" >
+        SEQ = #{record.seq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isExternal != null" >
+        IS_EXTERNAL = #{record.isExternal,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isActive != null" >
+        IS_ACTIVE = #{record.isActive,jdbcType=VARCHAR},
+      </if>
+      <if test="record.intRate != null" >
+        INT_RATE = #{record.intRate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rpmntMthd != null" >
+        RPMNT_MTHD = #{record.rpmntMthd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recVer != null" >
+        REC_VER = #{record.recVer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tagSeq != null" >
+        TAG_SEQ = #{record.tagSeq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.penaltyRate != null" >
+        PENALTY_RATE = #{record.penaltyRate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.adjustFee != null" >
+        ADJUST_FEE = #{record.adjustFee,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isSelf != null" >
+        is_Self = #{record.isSelf,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createdBy != null" >
+        created_by = #{record.createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updatedBy != null" >
+        Updated_by = #{record.updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateTime != null" >
+        Update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.fremark != null" >
+        FRemark = #{record.fremark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tbl_loan_payment_type
+    set FID = #{record.fid,jdbcType=INTEGER},
+      CODE = #{record.code,jdbcType=VARCHAR},
+      TYPE_NAME = #{record.typeName,jdbcType=VARCHAR},
+      SEQ = #{record.seq,jdbcType=VARCHAR},
+      IS_EXTERNAL = #{record.isExternal,jdbcType=VARCHAR},
+      IS_ACTIVE = #{record.isActive,jdbcType=VARCHAR},
+      INT_RATE = #{record.intRate,jdbcType=VARCHAR},
+      RPMNT_MTHD = #{record.rpmntMthd,jdbcType=VARCHAR},
+      REC_VER = #{record.recVer,jdbcType=VARCHAR},
+      TAG_SEQ = #{record.tagSeq,jdbcType=VARCHAR},
+      PENALTY_RATE = #{record.penaltyRate,jdbcType=VARCHAR},
+      ADJUST_FEE = #{record.adjustFee,jdbcType=VARCHAR},
+      is_Self = #{record.isSelf,jdbcType=VARCHAR},
+      created_by = #{record.createdBy,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      Updated_by = #{record.updatedBy,jdbcType=VARCHAR},
+      Update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      FRemark = #{record.fremark,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cpp.core.common.entity.LoanPaymentType" >
+    update tbl_loan_payment_type
+    <set >
+      <if test="code != null" >
+        CODE = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="typeName != null" >
+        TYPE_NAME = #{typeName,jdbcType=VARCHAR},
+      </if>
+      <if test="seq != null" >
+        SEQ = #{seq,jdbcType=VARCHAR},
+      </if>
+      <if test="isExternal != null" >
+        IS_EXTERNAL = #{isExternal,jdbcType=VARCHAR},
+      </if>
+      <if test="isActive != null" >
+        IS_ACTIVE = #{isActive,jdbcType=VARCHAR},
+      </if>
+      <if test="intRate != null" >
+        INT_RATE = #{intRate,jdbcType=VARCHAR},
+      </if>
+      <if test="rpmntMthd != null" >
+        RPMNT_MTHD = #{rpmntMthd,jdbcType=VARCHAR},
+      </if>
+      <if test="recVer != null" >
+        REC_VER = #{recVer,jdbcType=VARCHAR},
+      </if>
+      <if test="tagSeq != null" >
+        TAG_SEQ = #{tagSeq,jdbcType=VARCHAR},
+      </if>
+      <if test="penaltyRate != null" >
+        PENALTY_RATE = #{penaltyRate,jdbcType=VARCHAR},
+      </if>
+      <if test="adjustFee != null" >
+        ADJUST_FEE = #{adjustFee,jdbcType=VARCHAR},
+      </if>
+      <if test="isSelf != null" >
+        is_Self = #{isSelf,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null" >
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        Updated_by = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        Update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fremark != null" >
+        FRemark = #{fremark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where FID = #{fid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cpp.core.common.entity.LoanPaymentType" >
+    update tbl_loan_payment_type
+    set CODE = #{code,jdbcType=VARCHAR},
+      TYPE_NAME = #{typeName,jdbcType=VARCHAR},
+      SEQ = #{seq,jdbcType=VARCHAR},
+      IS_EXTERNAL = #{isExternal,jdbcType=VARCHAR},
+      IS_ACTIVE = #{isActive,jdbcType=VARCHAR},
+      INT_RATE = #{intRate,jdbcType=VARCHAR},
+      RPMNT_MTHD = #{rpmntMthd,jdbcType=VARCHAR},
+      REC_VER = #{recVer,jdbcType=VARCHAR},
+      TAG_SEQ = #{tagSeq,jdbcType=VARCHAR},
+      PENALTY_RATE = #{penaltyRate,jdbcType=VARCHAR},
+      ADJUST_FEE = #{adjustFee,jdbcType=VARCHAR},
+      is_Self = #{isSelf,jdbcType=VARCHAR},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      Updated_by = #{updatedBy,jdbcType=VARCHAR},
+      Update_time = #{updateTime,jdbcType=TIMESTAMP},
+      FRemark = #{fremark,jdbcType=VARCHAR}
+    where FID = #{fid,jdbcType=INTEGER}
+  </update>
+</mapper>

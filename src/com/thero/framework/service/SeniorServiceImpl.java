@@ -1,7 +1,9 @@
 package com.thero.framework.service;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
@@ -144,5 +146,25 @@ public abstract class SeniorServiceImpl<T, PK extends Serializable> extends Base
 	@Override
 	public int updateByPrimaryKey(T record) {
 		return this.getEntityDao().updateByPrimaryKey(record);
+	}
+	/**
+	 * 根据id循环删除内容
+	 * @author thero
+	 * @see com.thero.framework.service.BaseServiceImpl#deleteIds(java.lang.String, java.util.Map)
+	 */
+	public Map<String,Object> deleteIds(String ids, Map<String, Object> param)
+			 {
+		Map<String,Object> map = new HashMap<String,Object>();
+		if(null!=ids && ids.length() > 0){
+			String[] idss = ids.toString().split(";");
+			for(int i = 0 ;i < idss.length;i++){
+				//this.delete((PK) idss[i]);
+				this.deleteByPrimaryKey((PK) idss[i].toString());
+			}
+			map.put("succful", "删除成功");
+		}else{
+			map.put("fail", "删除失败");
+		}
+		return map;
 	}
 }

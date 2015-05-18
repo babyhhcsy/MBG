@@ -142,7 +142,9 @@ public abstract class SeniorController<T,PK extends Serializable> extends BaseCo
 	 */
 	public  T getBean(@RequestParam(value="fid",required=false) PK id,Map<String,Object> map){
 		if(null!=id){
-			T t = this.getEntityService().getByID((PK) id);
+			//T t = this.getEntityService().getByID((PK) id);
+			//使用自动生成的文件去保存内容
+			T t = this.getService().getByID(id);
 			map.put(this.getModelName(), t);
 			return t;
 		}
@@ -159,7 +161,9 @@ public abstract class SeniorController<T,PK extends Serializable> extends BaseCo
 	 */
 	public void saveEntity(T t,ModelMap map,HttpServletRequest request,HttpServletResponse response ){
 		this.beforeSaveEntity(t, map, request, response);
-		this.getEntityService().save(t);
+		//使用自动生成的文件去保存内容
+		this.getService().insert(t);
+		//this.getEntityService().save(t);
 	}
 	/**
 	 * 更新实体bean
@@ -170,7 +174,9 @@ public abstract class SeniorController<T,PK extends Serializable> extends BaseCo
 	 */
 	public void updateEntity(T t,ModelMap map,HttpServletRequest request,HttpServletResponse response){
 		this.beforeUpdateEntity(t, map, request, response);
-		this.getEntityService().update(t);
+		//使用自动生成的文件去保存内容
+		//this.getEntityService().update(t);
+		this.getService().update(t);
 	}
 	/**
 	 * web使用的保存示例内容
@@ -211,7 +217,9 @@ public abstract class SeniorController<T,PK extends Serializable> extends BaseCo
 	 */
 	@RequestMapping("/deatilEntity")
 	public String EntityDetail(@RequestParam(value="fid") PK id,ModelMap map,HttpServletRequest request,HttpServletResponse response){
-		T t = this.getBean(id, map);
+		//T t = this.getBean(id, map);
+		//使用自动生成的文件去保存内容
+		T t = this.getService().selectByPrimaryKey(id);
 		map.put(this.getModelName(), t);
 		logger.info("查询单个实体的返回路径为" + this.getModelName() + "/"+this.getModelName()+"Detail");
 		return this.getModelName()+"/"+this.getModelName()+"Deatil";
@@ -344,7 +352,7 @@ public abstract class SeniorController<T,PK extends Serializable> extends BaseCo
 	public String deleteEntity(@RequestParam(value="fid",required=false)PK id,ModelMap map,HttpServletRequest request,HttpServletResponse response){
 		this.beforeDeleteEntity(id, map, request, response);
 		logger.info("系统要删除的id为"+id);
-		T t = getBean(id, map);
+		T t = getBean(id, map); 
 		if(null==t){
 			map.put("error", "删除的对象不存在");
 		}else{
@@ -423,7 +431,9 @@ public abstract class SeniorController<T,PK extends Serializable> extends BaseCo
 		this.beforeDeleteEntities(fids, map, request, response);
 		Map<String,Object> param  = WebUtil.detailParams(request, fids, this.params.get(),map);
 		if(null!=fids && fids.length() > 0){
-			this.resultMap.get().putAll(this.getEntityService().deleteIds(fids, param));
+			//this.resultMap.get().putAll(this.getEntityService().deleteIds(fids, param));
+			////使用自动生成的文件去保存内容
+			this.resultMap.get().putAll(this.getService().deleteIds(fids,param));
 		}
 		map.putAll(this.resultMap.get());
 		return this.afterDeleteEntity(map, request, response);
@@ -450,7 +460,8 @@ public abstract class SeniorController<T,PK extends Serializable> extends BaseCo
 		params.set(new HashMap<String,Object>());
 		Map<String,Object> param  = WebUtil.detailParams(request, ids, this.params.get(),map);
 		if(null!=ids && ids.length() > 0){
-			this.resultMap.get().putAll( this.getEntityService().deleteIds(ids, param)); 
+			////使用自动生成的文件去保存内容
+			this.resultMap.get().putAll(this.getService().deleteIds(ids,param));
 		}
 		return this.resultMap.get();
 	}
@@ -696,9 +707,6 @@ public abstract class SeniorController<T,PK extends Serializable> extends BaseCo
 	public Map<String, Object> getParams() {
 		return params.get();
 	}
-
-
-	
 	public Map<String, Object> getResultMap() {
 		return resultMap.get();
 	}
