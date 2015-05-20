@@ -32,4 +32,6 @@ public interface StudentMapper {
     int updateByPrimaryKey(Student record);
     
     List<Student> queryStudentAndTeacher(Map<String,Object> params);
+    
+    int batchInsert(List<Student> students);
 }

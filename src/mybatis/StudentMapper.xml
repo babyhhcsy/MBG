@@ -109,6 +109,15 @@
       #{major,jdbcType=VARCHAR}, #{grade,jdbcType=VARCHAR}, #{supervisorId,jdbcType=INTEGER}
       )
   </insert>
+  <insert id="batchInsert" parameterType="list">
+  	  insert into student (id, name, gender, 
+      major, grade
+      )
+    values 
+   	 <foreach collection="list" item="item" index="index" separator=",">  
+    	 (null,#{item.name},#{item.gender},#{item.major},#{item.grade})  
+     </foreach>  
+  </insert>
   <insert id="insertSelective" parameterType="com.cpp.core.common.entity.Student" >
     insert into student
     <trim prefix="(" suffix=")" suffixOverrides="," >

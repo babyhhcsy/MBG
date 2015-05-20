@@ -144,7 +144,7 @@ public abstract class SeniorController<T,PK extends Serializable> extends BaseCo
 		if(null!=id){
 			//T t = this.getEntityService().getByID((PK) id);
 			//使用自动生成的文件去保存内容
-			T t = this.getService().getByID(id);
+			T t = this.getService().selectByPrimaryKey(id);
 			map.put(this.getModelName(), t);
 			return t;
 		}
@@ -176,7 +176,7 @@ public abstract class SeniorController<T,PK extends Serializable> extends BaseCo
 		this.beforeUpdateEntity(t, map, request, response);
 		//使用自动生成的文件去保存内容
 		//this.getEntityService().update(t);
-		this.getService().update(t);
+		this.getService().updateByPrimaryKey(t);
 	}
 	/**
 	 * web使用的保存示例内容
