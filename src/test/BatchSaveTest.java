@@ -60,7 +60,7 @@ public class BatchSaveTest {
 		session = sqlSessionFactory.openSession(ExecutorType.BATCH, true);
 		StudentMapper studentMapper = (StudentMapper) session.getMapper(StudentMapper.class);
 		Map<String, Object> params = new HashMap<String,Object>();
-		List<Student> students = studentMapper.queryStudentAndTeacher(params);
+	//	List<Student> students = studentMapper.queryStudentAndTeacher(params);
 		
 		//2、初始化数据
 		List<Student> preSaveStudent = initStudent();
@@ -91,12 +91,13 @@ public class BatchSaveTest {
 	 */
 	public List<Student> initStudent(){
 		List<Student> students = new ArrayList<Student>();
-		for(int i = 0 ;i < 1000;i++){
+		for(int i = 0 ;i < 2;i++){
 			Student student = new Student();
+			student.setId(i);
 			student.setGender("男"+i+"-"+i);
 			student.setGrade("100"+i+i+"-"+i);
 			student.setMajor("软件技术"+i+i+"-"+i);
-			student.setName("小哈哈"+i+i+"-"+i);
+			student.setName(null);
 			student.setSupervisorId(2);
 			students.add(student);
 		}

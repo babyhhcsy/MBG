@@ -26,5 +26,6 @@
 			<attribute name="owner.project.facets" value="me.spring"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/ojdbc14.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

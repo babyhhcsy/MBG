@@ -2,13 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cpp.core.scfRecharge.mybatis.dao.StudentMapper" >
   <resultMap id="BaseResultMap" type="com.cpp.core.common.entity.Student" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="gender" property="gender" jdbcType="VARCHAR" />
-    <result column="major" property="major" jdbcType="VARCHAR" />
-    <result column="grade" property="grade" jdbcType="VARCHAR" />
-    <result column="supervisor_id" property="supervisorId" jdbcType="INTEGER" />
-    <association property="teacher" column="supervisor_id" resultMap="com.cpp.core.scfRecharge.mybatis.dao.TeacherMapper.BaseResultMap" ></association>
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="GENDER" property="gender" jdbcType="VARCHAR" />
+    <result column="MAJOR" property="major" jdbcType="VARCHAR" />
+    <result column="GRADE" property="grade" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -110,12 +108,18 @@
       )
   </insert>
   <insert id="batchInsert" parameterType="list">
-  	  insert into student (id, name, gender, 
-      major, grade
+  	  insert into student (ID, NAME, GENDER, 
+      MAJOR, GRADE
       )
-    values 
-   	 <foreach collection="list" item="item" index="index" separator=",">  
-    	 (null,#{item.name},#{item.gender},#{item.major},#{item.grade})  
+     
+   	 <foreach open="(" close=")" collection="list" item="item" index="index"  separator="union all">  
+    	 select  
+    	 	#{item.id,jdbcType=INTEGER},
+    	 	#{item.NAME,jdbcType=VARCHAR},
+    	 	#{item.gender,jdbcType=VARCHAR},
+    	 	#{item.major,jdbcType=VARCHAR},
+    	 	#{item.grade,jdbcType=VARCHAR}
+    	  from DUAL  
      </foreach>  
   </insert>
   <insert id="insertSelective" parameterType="com.cpp.core.common.entity.Student" >
